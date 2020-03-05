@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+
+</head>
+<body>
+
+<div style="width: 600px; height: 400px;" id="mesic"></div>
+
+<div style="width: 600px; height: 700px;" id="linky"></div>
+
+<div style="width: 600px; height: 800px;" id="letiste"></div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+
+<script type="text/javascript">
+
+var colors = ['#b80058','#ebac23','#008cf9','#006e00','#00bbad','#d163e6','#b24502','#ff9287', '#5954d6', '#00c6f8', '#878500', '#00a76c', '#bdbdbd'];
+
+var datum = ['4.2.','5.2.','6.2.','7.2.','8.2.','9.2.','10.2.','11.2.','12.2.','13.2.','14.2.','15.2.','16.2.','17.2.','18.2.','19.2.','20.2.','21.2.','22.2.','23.2.','24.2.','25.2.','26.2.','27.2.','28.2.','29.2.','1.3.','2.3.','3.3.','4.3.','5.3.'];
+
+var zrusenemesic = [172,336,303,329,224,2264,2176,403,167,236,211,398,454,213,96,111,180,104,154,606,331,506,249,412,276,186,285,485,362,502,634];
+
+var linkylinky = ["Airline","(LH) Lufthansa","(U2) easyJet","(BA) British Airways","(SK) SAS","(AZ) Alitalia","(TK) Turkish Airlines","(CL) Lufthansa CityLine","(WF) Wideroe","(HOP) HOP!","(BE) Flybe","(WA) KLM Cityhopper","(EW) Eurowings","(XQ) SunExpress","(PC) Pegasus","(LX) SWISS","(CT) Alitalia CityLiner","(KL) KLM","(AF) Air France","(4U) Germanwings","(EN) Air Dolomiti","(CJ) BA Cityflyer","(VY) Vueling","(OS) Austrian","(SU) Aeroflot","(SN) Brussels Airlines","(LOG) Loganair","(EE*) Regional Jet","(HE) LGW","(2L) Helvetic Airways","(WX) Cityjet","(LO) LOT - Polish Airlines","(FC) Nordic Regional Airlines","(LG) Luxair","(IB) Iberia","(YW) Air Nostrum","(L1E) Norwegian Air Sweden","(PM) Canaryfly","(RE) Stobart Air","(NY) Air Iceland Connect","(D8*) Norwegian Air International"];
+
+var zrusenelinky = [1224,1161,868,595,586,524,516,507,503,445,355,335,312,286,255,245,206,205,203,170,141,136,130,109,105,102,98,98,94,91,89,88,83,81,80,79,67,65,62,59];
+
+var letisteletiste =  ["(MUC) Franz Josef Strauss Airport","(LHR) London Heathrow Airport","(AMS) Amsterdam Airport Schiphol","(FRA) Frankfurt Airport","(FCO) Leonardo da Vinci-Fiumicino Airport","(ISL) Istanbul Airport","(LGW) London Gatwick Airport","(LIN) Milano Linate Airport","(CDG) Charles de Gaulle Airport","(MXP) Milano Malpensa Airport","(DUS) Dusseldorf International Airport","(OSL) Oslo Airport Gardermoen","(SAW) Sabiha Gokcen International Airport","(ZRH) Zurich Airport","(LCY) London City Airport","(ORY) Paris Orly Airport","(HAM) Hamburg Airport","(ARN) Stockholm Arlanda Airport","(BRU) Brussels Airport","(CPH) Copenhagen Airport","(TXL) Tegel Airport","(STR) Stuttgart Airport","(GVA) Geneve Airport","(MAD) Adolfo Suarez Madrid-Barajas Airport","(LYS) Lyon Saint-Exupery International Airport","(BGO) Bergen Airport","(LTN) London Luton Airport","(VIE) Vienna International Airport","(MAN) Manchester Airport","(BHX) Birmingham International Airport","(BCN) Barcelona-El Prat Airport","(CGN) Cologne Bonn Airport","(LUX) Luxembourg Airport","(EDI) Edinburgh Airport","(HEL) Helsinki-Vantaa Airport","(GLA) Glasgow International Airport","(TLS) Toulouse-Blagnac Airport","(LPA) Gran Canaria Airport","(ESB) Esenboga International Airport","(SVO) Sheremetyevo International Airport","(DUB) Dublin Airport","(BSL) EuroAirport Swiss","(WAW) Frederic Chopin Airport"];
+
+var zruseneletiste = [1566,1347,1274,971,744,716,651,600,565,552,525,474,452,404,371,369,355,350,346,345,319,315,304,276,250,245,240,235,233,224,214,192,192,189,185,180,161,119,93,91,91,82,78];
+
+Highcharts.chart('mesic', {
+    chart: {
+        type: 'line'
+    },
+
+    title: {
+        text: 'Zrušené lety v Evropě'
+    },
+
+    subtitle: {
+        text: '4. února až 5. března'
+    },
+
+    xAxis: {
+        categories: datum
+    },
+
+    yAxis: {
+        title: {
+            text: ''
+        },
+        labels: {
+            formatter: function () {
+                return this.value;
+            }
+        }
+    },
+
+    exporting: {
+        enabled: false
+    },
+
+    legend: {
+        enabled: false
+    },
+
+    credits: {
+        href: 'https://www.flightstats.com/',
+        text: 'Zdroj: FlightStats.com'
+    },
+
+    series: [{
+        name: 'Zrušené lety',
+        data: zrusenemesic,
+        color: colors[7]
+    }]
+});
+
+Highcharts.chart('linky', {
+    chart: {
+        type: 'bar'
+    },
+
+    title: {
+        text: 'Evropské letecké společnosti s nejvíce zrušenými lety'
+    },
+
+    subtitle: {
+        text: '4. února až 5. března'
+    },
+
+    xAxis: {
+        categories: linkylinky
+    },
+
+    yAxis: {
+        title: {
+            text: ''
+        },
+        labels: {
+            formatter: function () {
+                return this.value;
+            }
+        }
+    },
+
+    exporting: {
+        enabled: false
+    },
+
+    legend: {
+        enabled: false
+    },
+
+    credits: {
+        href: 'https://www.flightstats.com/',
+        text: 'Zdroj: FlightStats.com'
+    },
+
+    series: [{
+        name: 'Zrušené lety',
+        data: zrusenelinky,
+        color: colors[1]
+    }]
+});
+
+Highcharts.chart('letiste', {
+    chart: {
+        type: 'bar'
+    },
+
+    title: {
+        text: 'Evropská letiště s nejvíce zrušenými lety'
+    },
+
+    subtitle: {
+        text: 'Přílety + odlety, 4. února až 5. března'
+    },
+
+    xAxis: {
+        categories: letisteletiste
+    },
+
+    yAxis: {
+        title: {
+            text: ''
+        },
+        labels: {
+            formatter: function () {
+                return this.value;
+            }
+        }
+    },
+
+    exporting: {
+        enabled: false
+    },
+
+    legend: {
+        enabled: false
+    },
+
+    credits: {
+        href: 'https://www.flightstats.com/',
+        text: 'Zdroj: FlightStats.com'
+    },
+
+    series: [{
+        name: 'Zrušené lety',
+        data: zruseneletiste,
+        color: colors[2]
+    }]
+});
+
+</script>
+</html>
